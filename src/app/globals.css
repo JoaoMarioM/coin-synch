@@ -2,26 +2,85 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+@layer base {
+  h1 {
+    @apply h1;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+  h2 {
+    @apply h2;
+  }
+
+  h3 {
+    @apply h3;
+  }
+
+  h4 {
+    @apply h4;
+  }
+
+  h5 {
+    @apply h5;
+  }
+
+  p {
+    @apply p;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer components {
+  .h1 {
+    @apply text-5xl leading-[3.5rem] tracking-normal text-default;
+  }
+
+  .h2 {
+    @apply text-[2.5rem] leading-[3rem] tracking-normal text-default;
+  }
+
+  .h3 {
+    @apply text-[2rem] leading-10 tracking-normal text-default;
+  }
+
+  .h4 {
+    @apply text-2xl leading-8 tracking-normal text-default;
+  }
+
+  .h5 {
+    @apply text-xl leading-6 tracking-normal text-default;
+  }
+
+  .p {
+    @apply text-base leading-6 tracking-normal text-default;
+  }
+
+  .label {
+    @apply text-sm leading-4 tracking-normal text-default;
+  }
+
+  .small-label {
+    @apply text-xs leading-[14px] tracking-normal text-default;
+  }
+
+  .chip {
+    @apply w-fit px-4 py-1 rounded !text-primary-500 !bg-primary-100;
+  }
+
+  .scroll-hidden::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scroll-hidden {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  div:has(.dropsown--menu__content) {
+    z-index: 100 !important;
+  }
+
+  .input-number_hidden::-webkit-inner-spin-button,
+  .input-number_hidden::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 }
