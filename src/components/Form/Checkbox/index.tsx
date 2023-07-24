@@ -15,10 +15,10 @@ const Checkbox = forwardRef<HTMLInputElement, Props>(
         <div className='flex items-start gap-4'>
           <input
             ref={ref}
-            className='appearance-none w-6 h-6 rounded accent-primary-500 outline-primary-500 !border-primary-500 border-2'
+            className='w-6 h-6 rounded accent-primary-500 outline-primary-500 border-primary-500 border-2'
             type='checkbox'
-            {...props}
             id={id}
+            {...props}
           />
           <label htmlFor={id}>{label}</label>
         </div>

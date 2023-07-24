@@ -2,14 +2,16 @@
 
 import Button from '@/components/Button';
 import Input from '@/components/Form/Input';
-import Modal from '@/components/Modal';
-// import { signIn } from "next-auth/react";
+import { useRouter } from 'next/navigation';
+
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useState } from 'react';
-// import { userDbStore } from "@/stores/usersDb";
+import { SignupProps } from '../Signup/types';
+import { GetUsers } from '@/services/requests/user';
+import { FormProps } from '@/services/requests/user/types';
 
 const schema = yup
   .object({
@@ -23,9 +25,11 @@ const schema = yup
 
 type FormData = yup.InferType<typeof schema>;
 
-const SignInModal = () => {
+const SignInModal = ({ handleSignin }: SignupProps) => {
+  const router = useRouter();
+
   const [error, setError] = useState('');
-  // const users = userDbStore(store => store.users)
+
   const {
     register,
     handleSubmit,
@@ -36,18 +40,27 @@ const SignInModal = () => {
   });
 
   const onSubmit = async (data: FormData) => {
-    // const user = users.find(user => user.email === data.email)
+    setError('')
+    try {
+      const res: FormProps[] = await GetUsers()
 
-    // if (user && user.password === data.password) {
-    //     await signIn("credentials", {
-    //         redirect: true,
-    //         callbackUrl: "/dashboard",
-    //         ...user,
-    //     })
-    //     return
-    // }
+      const findUser = res.find(item => item.email === data.email);
 
-    setError('User not found!');
+      if(!findUser){
+        setError('username or password not found');
+        return;
+      }
+
+      if(findUser && findUser.password !== data.password){
+        setError('username or password not found');
+        return;
+      }
+
+      localStorage.setItem('user', JSON.stringify(data));
+      router.push('/dashboard');
+    } catch (error) {
+      
+    }
   };
 
   return (
@@ -82,11 +95,14 @@ const SignInModal = () => {
         </Button>
       </div>
 
-      <Link href='/signup' className='sm:small-label xl:label mx-auto mt-6'>
+      <button 
+        onClick={() => handleSignin('sinup')}
+        className='sm:small-label xl:label mx-auto mt-6'
+      >
         Don’t have an account? <span className='font-bold'>Sign up to</span>{' '}
         <span className='text-primary-500 font-bold'>Coin</span>
         <span className='text-secondary-500 font-bold'>Synch</span>
-      </Link>
+      </button>
     </form>
   );
 };

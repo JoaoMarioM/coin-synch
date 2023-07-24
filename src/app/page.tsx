@@ -1,24 +1,34 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 
-import Header from '@/components/Header';
+import Modal from '@/components/Modal';
+import { Card } from '@/components/Card';
 import Button from '@/components/Button';
+import Header from '@/components/Header';
+import { Footer } from '@/components/Footer';
 import { Carousel } from '@/components/Carousel';
 import { Container } from '@/components/Container';
-import { Card } from '@/components/Card';
-import { TableCryptos } from '@/components/TableCryptos';
-import { FormSubscribe } from '@/components/Home/FormSubscribe';
-import { Footer } from '@/components/Footer';
-import { useCoins } from '@/hooks/coins';
-import Modal from '@/components/Modal';
 import SignInModal from '@/components/Modal/Signin';
 import SignUpModal from '@/components/Modal/Signup';
+import { TableCryptos } from '@/components/TableCryptos';
+import { FormSubscribe } from '@/components/Home/FormSubscribe';
 
 export default function Home() {
   const [isSigninOpen, setIsSigninOpen] = useState(false);
   const [isSignupOpen, setIsSignupOpen] = useState(false);
+
+  const handleChangeModal = (type: string) => {
+    if(type === 'signin'){
+      setIsSignupOpen(false);
+      setIsSigninOpen(true);
+    } else {
+      setIsSigninOpen(false);
+      setIsSignupOpen(true);
+    }
+  }
+
   return (
     <main className='min-h-screen'>
       <Modal
@@ -31,7 +41,7 @@ export default function Home() {
         }
         onDismiss={setIsSigninOpen}
       >
-        <SignInModal />
+        <SignInModal handleSignin={handleChangeModal}/>
       </Modal>
 
       <Modal
@@ -44,7 +54,7 @@ export default function Home() {
         }
         onDismiss={setIsSignupOpen}
       >
-        <SignUpModal />
+        <SignUpModal handleSignin={handleChangeModal}/>
       </Modal>
 
       <Header
@@ -66,6 +76,7 @@ export default function Home() {
           <Button
             suffix='arrow-right'
             className='xl:w-1/2 md:w-3/4 mt-2 xl:mb-14 mb-5'
+            onClick={() => setIsSignupOpen(true)}
           >
             SIGN UP NOW
           </Button>
@@ -129,7 +140,10 @@ export default function Home() {
               aliquam, purus sit amet luctus venenatis, lectus magna fringilla
               urna, porttitor
             </p>
-            <Button className='w-1/2 mt-10 hidden xl:visible'>
+            <Button 
+              className='w-1/2 mt-10 xl:visible'
+              onClick={() => setIsSignupOpen(true)}
+            >
               Sign up now
             </Button>
           </div>

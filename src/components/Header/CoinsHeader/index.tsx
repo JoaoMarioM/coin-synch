@@ -1,5 +1,5 @@
 import { useCoins } from '@/hooks/coins';
-import { Coin } from '@/services/Coins/types';
+import { Coin } from '@/services/requests/Coins/types';
 
 export const CoinsHeader = () => {
   const { coins } = useCoins();

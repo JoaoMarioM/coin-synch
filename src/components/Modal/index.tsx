@@ -6,40 +6,41 @@ import Button from "../Button";
 import { useRouter } from "next/navigation";
 
 interface Props extends ComponentProps<"div"> {
-    header: React.ReactNode
-    // pathToReturn?: string
+    isOpen?: boolean;
+    header: React.ReactNode;
     onDismiss: (value: boolean) => void;
-    isOpen?: boolean
 }
 
 const Modal = ({
     isOpen,
     header,
     children,
-    onDismiss: _onDismiss
+    onDismiss
 }: Props) => {
     const overlayRef = useRef<HTMLDivElement | null>(null);
     const containerRef = useRef<HTMLDivElement | null>(null);
     const router = useRouter();
 
-    const onDismiss = useCallback(() => {
-        if (_onDismiss) {
-            _onDismiss(false)
+    const handleClose = useCallback(() => {
+        if (onDismiss) {
+            onDismiss(false)
             return
-        }
-        else router.back()
-    }, [router, _onDismiss]);
+        };
+
+        router.back();
+    }, [router, onDismiss]);
 
     const onClick = useCallback((event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
         if (
             event.target === overlayRef.current ||
             event.target === containerRef.current
-        ) onDismiss();
-    }, [onDismiss, overlayRef, containerRef]);
+        ) 
+        handleClose();
+    }, [handleClose, overlayRef, containerRef]);
 
     const onKeyDown = useCallback((event: KeyboardEvent) => {
-        if (event.key === "Escape") onDismiss();
-    }, [onDismiss]);
+        if (event.key === "Escape") handleClose();
+    }, [handleClose]);
 
     useEffect(() => {
         document.addEventListener("keydown", onKeyDown);
@@ -59,7 +60,7 @@ const Modal = ({
                     <div className="relative flex items-center justify-center px-4 mb-6">
                         {header}
                         <Button
-                            onClick={onDismiss}
+                            onClick={handleClose}
                             suffix="close"
                             variant="text"
                             iconClassname="w-4 h-4"

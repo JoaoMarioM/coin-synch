@@ -7,8 +7,6 @@ import Button from '../../Button';
 import { Props } from './types';
 import { useInput } from './hooks';
 
-
-
 // eslint-disable-next-line react/display-name
 const Input = forwardRef<HTMLInputElement, Props>(
   ({ 
@@ -49,11 +47,12 @@ const Input = forwardRef<HTMLInputElement, Props>(
           />
           {type === 'password' && (
             <Button
+              type='button'
               className='absolute right-4 top-1/2 -translate-y-1/2 !p-0'
               variant='text'
               suffix={isShowingPass ? 'eye-not' : 'eye'}
               iconClassname='w-4 h-4'
-              onClick={() => setIsShowingPass((p) => !p)}
+              onClick={() => setIsShowingPass(!isShowingPass)}
             />
           )}
         </div>

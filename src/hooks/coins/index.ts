@@ -1,8 +1,8 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import { Coin } from '@/services/Coins/types';
-import { GetCoins } from '@/services/Coins';
+import { Coin } from '@/services/requests/Coins/types';
+import { GetCoins } from '@/services/requests/Coins';
 
 export const useCoins = () => {
   const [coins, setCoins] = useState<Coin[]>([]);
@@ -16,7 +16,7 @@ export const useCoins = () => {
     try {
       const res = await GetCoins();
 
-      const formattedCoins = res?.map((coin) => ({
+      const formattedCoins = res?.map((coin: Coin) => ({
         ...coin,
         symbol: coin.symbol.toLocaleUpperCase(),
         percentage_24h: `${numberFormatter.format(

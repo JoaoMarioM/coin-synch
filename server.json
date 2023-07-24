@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "name": "teste",
+      "email": "teste@email.com",
+      "password": "123456",
+      "confirmPassword": "123456",
+      "policyAccepted": true,
+      "id": 1
+    },
+    {
+      "name": "teste1",
+      "email": "teste@email.com",
+      "password": "123456",
+      "confirmPassword": "123456",
+      "policyAccepted": true,
+      "id": 2
+    },
+    {
+      "name": "joao",
+      "email": "joao@teste.com",
+      "password": "123456",
+      "confirmPassword": "123456",
+      "policyAccepted": true,
+      "id": 3
+    }
+  ]
+}

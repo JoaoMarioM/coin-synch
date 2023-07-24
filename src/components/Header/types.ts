@@ -1,4 +1,4 @@
-import { Coin } from '@/services/Coins/types';
+import { Coin } from '@/services/requests/Coins/types';
 
 export type HeaderProps = {
   hideShadow?: boolean;
