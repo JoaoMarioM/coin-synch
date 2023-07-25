@@ -1,5 +1,5 @@
 <h1 align="center">
-  CoinSync
+  CoinSynch
 </h1>
 
 ![Layout do coinsynch](./.github/capa-coinsync.png)
