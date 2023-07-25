@@ -7,12 +7,6 @@
 <p align="center">
   <a href="#-notas">Notas</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-instalação">Instalação</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-sobre-o-desafio">Sobre o desafio</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;
-</p>
-
-<p align="center">
-  <a href="coinsynch-nu.vercel.app">Live Preview</a>
 </p>
 
 ## 📝 Notas
