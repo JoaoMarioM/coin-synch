@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img alt="CoinSync" title="CoinSync" src=".github/logo-coinsync.png" width="200" />
+  CoinSync
 </h1>
 
 ![Layout do coinsynch](./.github/capa-coinsync.png)
