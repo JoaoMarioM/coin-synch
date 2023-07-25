@@ -10,7 +10,7 @@
 </p>
 
 ## 📝 Notas
-> O projeto utiliza a API do CoinGecko para obter informações sobre criptomoedas, uma escolha frequente devido à vasta quantidade de dados disponíveis e à reputação da API no contexto das criptomoedas.Foi utilizado a api do CoinGecko  para os dados das criptomoedas.
+> O projeto foi criado usando NextJs e utiliza a API do CoinGecko para obter informações sobre criptomoedas, uma escolha frequente devido à vasta quantidade de dados disponíveis e à reputação da API no contexto das criptomoedas.Foi utilizado a api do CoinGecko  para os dados das criptomoedas.
 
 > A aplicação funciona corretamente apenas em ambiente local.
 
