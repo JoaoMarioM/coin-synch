@@ -1,12 +1,9 @@
 'use client';
 
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import Image from 'next/image';
 import { cx } from 'class-variance-authority';
 
-import { debounce } from '@/utils/debounce';
 import { Icon } from '../Icon';
-import { Items } from './types';
 import { useCarousel } from './hooks';
 
 
@@ -17,7 +14,8 @@ export const Carousel = () => {
     itens,
     MIN_DELAY,
     MAX_DELAY,
-  } = useCarousel()
+  } = useCarousel();
+
   return (
     <div className='absolute xl:top-32 md:top-36 right-0 xl:w-[640px] xl:h-[500px] md:w-[388px] md:h-[280px] max-md:hidden'>
       <div className='overflow-x-hidden pl-10' ref={containerRef}>

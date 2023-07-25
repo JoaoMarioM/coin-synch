@@ -2,12 +2,11 @@
 
 import { useCallback, useState } from 'react';
 import { cx } from 'class-variance-authority';
+import Image from 'next/image';
 
 import Button from '@/components/Button';
-import { Container } from '@/components/Container';
 import Input from '@/components/Form/Input';
-// import { sleep } from '@/utils/sleep';
-import Image from 'next/image';
+import { Container } from '@/components/Container';
 
 export const FormSubscribe = () => {
   const [value, setValue] = useState('');
@@ -15,7 +14,6 @@ export const FormSubscribe = () => {
 
   const handleSubmit = useCallback(async () => {
     setIsSubmitting(true);
-    // await sleep(2000);
     setIsSubmitting(false);
     setValue('');
   }, []);

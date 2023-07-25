@@ -30,7 +30,7 @@ function DashboardHeader({ hideShadow = false, user }: DashboardHeaderProps) {
     >
       <div className='transition-[max-width] ease-out h-full container flex items-center gap-6 max-sm:px-6 justify-between'>
         <Button
-          className='xl:hidden !p-2 rounded-full'
+          className='xl:hidden !p-2 rounded-full hover:cursor-pointer'
           suffix='h-menu'
           variant='text'
           iconClassname='w-6 h-6'
@@ -42,13 +42,13 @@ function DashboardHeader({ hideShadow = false, user }: DashboardHeaderProps) {
           width={0}
           height={0}
           priority
-          className='mr-4 md:w-32 md:h-5 sm:h-4 sm:w-24'
+          className='mr-4 md:w-32 md:h-5 sm:h-4 sm:w-24  hover:cursor-pointer'
         />
         <DropdownMenu
           options={
             <Item
               onClick={handleLogout}
-              className='text-secondary-500 group rounded flex items-center gap-4 px-2 outline-primary-500 hover:bg-primary-500 hover:text-white'
+              className='text-secondary-500 group rounded flex items-center gap-4 px-2 outline-primary-500 hover:bg-primary-500 hover:text-white hover:cursor-pointer'
             >
               <Icon
                 name='door-out'

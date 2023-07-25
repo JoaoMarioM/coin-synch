@@ -1,8 +1,9 @@
 import { GetCoin, GetVariation } from '@/services/requests/Coins';
 import { useEffect, useState } from 'react';
+import { CoinVariation } from './types';
 
 export const useDailyVariation = (crypto: string) => {
-  const [coin, setCoin] = useState({
+  const [coin, setCoin] = useState<CoinVariation>({
     image: '',
     symbol: '',
     data: [],
@@ -20,7 +21,7 @@ export const useDailyVariation = (crypto: string) => {
     try {
       const res = await GetCoin(crypto);
       const data = await GetVariation(crypto);
-
+      
       const [[, firstPrice], ...middle] = data?.prices;
       const [[, lastPrice]] = middle.slice(-1);
       const dailyVariation = ((lastPrice - firstPrice) / firstPrice) * 100;

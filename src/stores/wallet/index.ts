@@ -1,28 +1,9 @@
 "use client"
 
-import { SelectOption } from '@/types/Select'
-import { Coin } from '@/types/coinGecko/Coin'
+import { SelectOption } from '@/components/Modal/Wallet/types';
+import { Coin } from '@/services/requests/Coins/types';
 import { create } from 'zustand'
-
-export interface OwnedCoin extends Coin {
-    quantity: number
-    change: number
-    formattedChange: string
-    priceInUSD: number
-}
-export interface CoinOption extends SelectOption {
-    data: Omit<OwnedCoin, "quantity">
-}
-
-interface WalletState {
-    balance: number
-    options: CoinOption[]
-    owned: Array<OwnedCoin>
-    setOption(options: CoinOption[]): void
-    addCrypto(crypto: OwnedCoin): void
-    transferInQuantity(id: string, quantity: number): void
-    transferOutQuantity(id: string, quantity: number): void
-}
+import { CoinOption, OwnedCoin, WalletState } from './types';
 
 export const wallet = create<WalletState>((set, get) => ({
     balance: 32_256.56,

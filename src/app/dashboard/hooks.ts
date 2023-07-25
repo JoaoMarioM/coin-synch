@@ -28,8 +28,6 @@ export const useDashboard = () => {
 
   const getUser = () => {
     const _user = localStorage.getItem('user');
-
-    console.log(32, _user)
     if(_user){
       setUser(JSON.parse(_user));
     } else {

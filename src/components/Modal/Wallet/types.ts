@@ -1,6 +1,9 @@
-import { Coin } from '@/services/requests/Coins/types';
+import * as yup from 'yup';
 
-type SelectOption = {
+import { Coin } from '@/services/requests/Coins/types';
+import { schema } from './hooks';
+
+export type SelectOption = {
   label: string
   value: string
 }
@@ -10,3 +13,5 @@ export type SelectOptionCoin = {
   label: string;
   data: Partial<Coin>;
 } & SelectOption;
+
+export type FormData = yup.InferType<typeof schema>;

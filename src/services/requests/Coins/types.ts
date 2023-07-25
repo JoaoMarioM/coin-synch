@@ -8,3 +8,9 @@ export type Coin = {
   price?: string
   percentage_24h?: string
 }
+
+export type VariationResponse = {
+  prices: [[number, number]];
+  market_caps: [[number, number]];
+  total_volumes: [[number, number]];
+};
